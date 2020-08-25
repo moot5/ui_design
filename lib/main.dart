@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash/animated_splash.dart';
-import 'package:ui_design/search_r.dart';
+import 'package:ui_design/route_poi/ui_poi.dart';
+import 'package:ui_design/route_search/ui_search.dart';
 
 void main() {
   //runApp(MyApp());
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
           ),
       ),
       routes: {
-        '/search': (context) => search_r(),
+        '/search': (context) => ui_search(), // why cant it see this function?
+        '/poi': (context) => ui_poi()
       },
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -59,28 +61,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<String> dataholder = [
-    "Johnette Otterson",
-    "Sara Easler",
-    "Anna Ayala",
-    "Lamonica Uphoff",
-    "Shakira Wolff",
-    "Belle Abasta",
-    "Christena Brownstein",
-    "Grady Straker",
-    "Roxann Ashbaugh",
-    "Kyong Frank",
-    "Angla Colunga",
-    "Matha Flemister",
-    "Felisha Premo",
-    "Bernadette Kelly",
-    "Glennis Bierbaum",
-    "Etha Sessoms",
-    "Kai Selders",
-    "Celsa Yee",
-    "Cherelle Evatt",
-    "Lara Spainhour",
-  ];
   int _counter = 0;
 
   void _incrementCounter() {
@@ -130,14 +110,14 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text('Search'),
                 onTap: (){
                   // function
-                  Navigator.pop(context);
+                  Navigator.pushReplacementNamed(context, "/search");
                 }
             ),
             ListTile(
               title: Text('Places of interest'),
               onTap: (){
                 //function
-                Navigator.pushNamed(context, "/search");
+                Navigator.pushReplacementNamed(context, "/poi");
               }
             )
           ],
