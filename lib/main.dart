@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash/animated_splash.dart';
+import 'package:ui_design/route_map/ui_map.dart';
 import 'package:ui_design/route_poi/ui_poi.dart';
 import 'package:ui_design/route_search/ui_search.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'test Demo',
       theme: ThemeData(
         primarySwatch: Colors.lightBlue,
         brightness: Brightness.light,
@@ -35,9 +36,10 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/search': (context) => ui_search(), // why cant it see this function?
-        '/poi': (context) => ui_poi()
+        '/poi': (context) => ui_poi(),
+        '/mapHere': (context) => MapHere(),
       },
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'test'),
     );
   }
 }
@@ -103,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text('Map'),
               onTap: (){
                 // function
-                Navigator.pop(context);
+                Navigator.pushReplacementNamed(context,"/mapHere");
               }
             ),
             ListTile(
